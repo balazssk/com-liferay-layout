@@ -1040,6 +1040,7 @@ public class LayoutStagedModelDataHandler
 		}
 
 		ExportImportProcessCallbackRegistryUtil.registerCallback(
+			portletDataContext.getExportImportProcessId(),
 			new ImportLinkedLayoutCallable(
 				portletDataContext.getScopeGroupId(),
 				portletDataContext.isPrivateLayout(), importedLayout.getUuid(),
