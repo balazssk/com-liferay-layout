@@ -285,14 +285,14 @@ public class LayoutItemSelectorViewDisplayContext {
 				ActionRequest.ACTION_NAME, "deleteLayout");
 			deleteLayoutURL.setParameter("mvcPath", "/edit_layout.jsp");
 			deleteLayoutURL.setParameter(
+				"redirect",
+				PortalUtil.getLayoutURL(defaultLayout, themeDisplay));
+			deleteLayoutURL.setParameter(
 				"groupId", String.valueOf(layout.getGroupId()));
 			deleteLayoutURL.setParameter(
 				"selPlid", String.valueOf(layout.getPlid()));
 			deleteLayoutURL.setParameter(
 				"privateLayout", String.valueOf(_privateLayout));
-			deleteLayoutURL.setParameter(
-				"redirect",
-				PortalUtil.getLayoutURL(defaultLayout, themeDisplay));
 
 			deletePageJSONObject.put("url", deleteLayoutURL.toString());
 
