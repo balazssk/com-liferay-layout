@@ -16,7 +16,7 @@ package com.liferay.layout.admin.web.internal.exportimport.data.handler;
 
 import com.liferay.counter.kernel.service.CounterLocalService;
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
-import com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistryUtil;
+import com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistry;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
@@ -1039,7 +1039,7 @@ public class LayoutStagedModelDataHandler
 			return;
 		}
 
-		ExportImportProcessCallbackRegistryUtil.registerCallback(
+		_exportImportProcessCallbackRegistry.registerCallback(
 			portletDataContext.getExportImportProcessId(),
 			new ImportLinkedLayoutCallable(
 				portletDataContext.getScopeGroupId(),
@@ -1364,6 +1364,11 @@ public class LayoutStagedModelDataHandler
 			new Class<?>[] {PortalException.class, SystemException.class});
 
 	private CounterLocalService _counterLocalService;
+
+	@Reference
+	private ExportImportProcessCallbackRegistry
+		_exportImportProcessCallbackRegistry;
+
 	private GroupLocalService _groupLocalService;
 	private ImageLocalService _imageLocalService;
 	private LayoutFriendlyURLLocalService _layoutFriendlyURLLocalService;
