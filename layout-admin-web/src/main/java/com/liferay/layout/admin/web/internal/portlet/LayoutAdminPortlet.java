@@ -786,7 +786,6 @@ public class LayoutAdminPortlet extends MVCPortlet {
 
 		try {
 			getGroup(renderRequest);
-
 			getLayout(renderRequest);
 		}
 		catch (Exception e) {

@@ -18,6 +18,7 @@
 
 <%
 String referer = request.getHeader(HttpHeaders.REFERER);
+
 String redirect = GetterUtil.getString(request.getAttribute(WebKeys.REDIRECT), referer);
 %>
 
