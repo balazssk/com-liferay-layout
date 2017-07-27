@@ -58,7 +58,6 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
-			<description>The primary key of the page that is currently selected.</description>
 			<name>layoutSetBranch</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
