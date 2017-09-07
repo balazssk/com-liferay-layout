@@ -568,7 +568,6 @@ public class LayoutsTreeImpl implements LayoutsTree {
 		boolean hasManageLayoutsPermission = GroupPermissionUtil.contains(
 			themeDisplay.getPermissionChecker(), groupId,
 			ActionKeys.MANAGE_LAYOUTS);
-
 		boolean mobile = BrowserSnifferUtil.isMobile(request);
 
 		for (LayoutTreeNode layoutTreeNode : layoutTreeNodes) {
