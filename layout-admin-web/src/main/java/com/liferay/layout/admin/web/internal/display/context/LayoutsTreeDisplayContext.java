@@ -145,6 +145,74 @@ public class LayoutsTreeDisplayContext extends BaseLayoutDisplayContext {
 		return emptyLayoutSetURL;
 	}
 
+	public PortletURL getItemSelectorURL() {
+		ItemSelector itemSelector =
+			(ItemSelector)liferayPortletRequest.getAttribute(
+				LayoutAdminWebKeys.ITEM_SELECTOR);
+
+		LayoutItemSelectorCriterion layoutItemSelectorCriterion =
+			new LayoutItemSelectorCriterion();
+
+		List<ItemSelectorReturnType> desiredItemSelectorReturnTypes =
+			new ArrayList<>();
+
+		desiredItemSelectorReturnTypes.add(new UUIDItemSelectorReturnType());
+
+		layoutItemSelectorCriterion.setDesiredItemSelectorReturnTypes(
+			desiredItemSelectorReturnTypes);
+
+		layoutItemSelectorCriterion.setFollowURLOnTitleClick(true);
+		layoutItemSelectorCriterion.setShowActionsMenu(true);
+
+		String eventName = liferayPortletResponse.getNamespace() + "selectPage";
+
+		return itemSelector.getItemSelectorURL(
+			RequestBackedPortletURLFactoryUtil.create(liferayPortletRequest),
+			eventName, layoutItemSelectorCriterion);
+	}
+
+	public LayoutSetBranch getLayoutSetBranch() throws PortalException {
+		if (_layoutSetBranch != null) {
+			return _layoutSetBranch;
+		}
+
+		long layoutSetBranchId = ParamUtil.getLong(
+			liferayPortletRequest, "layoutSetBranchId");
+
+		if (layoutSetBranchId <= 0) {
+			LayoutSet selLayoutSet = getSelLayoutSet();
+
+			layoutSetBranchId = StagingUtil.getRecentLayoutSetBranchId(
+				themeDisplay.getUser(), selLayoutSet.getLayoutSetId());
+		}
+
+		if (layoutSetBranchId > 0) {
+			_layoutSetBranch =
+				LayoutSetBranchLocalServiceUtil.fetchLayoutSetBranch(
+					layoutSetBranchId);
+		}
+
+		if (_layoutSetBranch == null) {
+			try {
+				Group stagingGroup = getStagingGroup();
+
+				_layoutSetBranch =
+					LayoutSetBranchLocalServiceUtil.getMasterLayoutSetBranch(
+						stagingGroup.getGroupId(), isPrivateLayout());
+			}
+			catch (NoSuchLayoutSetBranchException nslsbe) {
+
+				// LPS-52675
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(nslsbe, nslsbe);
+				}
+			}
+		}
+
+		return _layoutSetBranch;
+	}
+
 	public String getLayoutSetBranchCssClass(LayoutSetBranch layoutSetBranch)
 		throws PortalException {
 
@@ -461,48 +529,6 @@ public class LayoutsTreeDisplayContext extends BaseLayoutDisplayContext {
 		}
 
 		return false;
-	}
-
-	protected LayoutSetBranch getLayoutSetBranch() throws PortalException {
-		if (_layoutSetBranch != null) {
-			return _layoutSetBranch;
-		}
-
-		long layoutSetBranchId = ParamUtil.getLong(
-			liferayPortletRequest, "layoutSetBranchId");
-
-		if (layoutSetBranchId <= 0) {
-			LayoutSet selLayoutSet = getSelLayoutSet();
-
-			layoutSetBranchId = StagingUtil.getRecentLayoutSetBranchId(
-				themeDisplay.getUser(), selLayoutSet.getLayoutSetId());
-		}
-
-		if (layoutSetBranchId > 0) {
-			_layoutSetBranch =
-				LayoutSetBranchLocalServiceUtil.fetchLayoutSetBranch(
-					layoutSetBranchId);
-		}
-
-		if (_layoutSetBranch == null) {
-			try {
-				Group stagingGroup = getStagingGroup();
-
-				_layoutSetBranch =
-					LayoutSetBranchLocalServiceUtil.getMasterLayoutSetBranch(
-						stagingGroup.getGroupId(), isPrivateLayout());
-			}
-			catch (NoSuchLayoutSetBranchException nslsbe) {
-
-				// LPS-52675
-
-				if (_log.isDebugEnabled()) {
-					_log.debug(nslsbe, nslsbe);
-				}
-			}
-		}
-
-		return _layoutSetBranch;
 	}
 
 	protected boolean isLayoutSetBranchSelected(LayoutSetBranch layoutSetBranch)
