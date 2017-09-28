@@ -145,32 +145,6 @@ public class LayoutsTreeDisplayContext extends BaseLayoutDisplayContext {
 		return emptyLayoutSetURL;
 	}
 
-	public PortletURL getItemSelectorURL() {
-		ItemSelector itemSelector =
-			(ItemSelector)liferayPortletRequest.getAttribute(
-				LayoutAdminWebKeys.ITEM_SELECTOR);
-
-		LayoutItemSelectorCriterion layoutItemSelectorCriterion =
-			new LayoutItemSelectorCriterion();
-
-		List<ItemSelectorReturnType> desiredItemSelectorReturnTypes =
-			new ArrayList<>();
-
-		desiredItemSelectorReturnTypes.add(new UUIDItemSelectorReturnType());
-
-		layoutItemSelectorCriterion.setDesiredItemSelectorReturnTypes(
-			desiredItemSelectorReturnTypes);
-
-		layoutItemSelectorCriterion.setFollowURLOnTitleClick(true);
-		layoutItemSelectorCriterion.setShowActionsMenu(true);
-
-		String eventName = liferayPortletResponse.getNamespace() + "selectPage";
-
-		return itemSelector.getItemSelectorURL(
-			RequestBackedPortletURLFactoryUtil.create(liferayPortletRequest),
-			eventName, layoutItemSelectorCriterion);
-	}
-
 	public LayoutSetBranch getLayoutSetBranch() throws PortalException {
 		if (_layoutSetBranch != null) {
 			return _layoutSetBranch;
