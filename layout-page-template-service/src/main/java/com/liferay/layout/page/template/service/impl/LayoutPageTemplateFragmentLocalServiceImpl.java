@@ -44,7 +44,7 @@ public class LayoutPageTemplateFragmentLocalServiceImpl
 			long fragmentEntryId, int position, ServiceContext serviceContext)
 		throws PortalException {
 
-		// Layout Page Template Fragment
+		// Layout page template fragment
 
 		User user = userLocalService.getUser(userId);
 
@@ -109,7 +109,7 @@ public class LayoutPageTemplateFragmentLocalServiceImpl
 			LayoutPageTemplateFragment layoutPageTemplateFragment)
 		throws PortalException {
 
-		// Layout Page Template Fragment
+		// Layout page template fragment
 
 		layoutPageTemplateEntryPersistence.remove(layoutPageTemplateFragment);
 

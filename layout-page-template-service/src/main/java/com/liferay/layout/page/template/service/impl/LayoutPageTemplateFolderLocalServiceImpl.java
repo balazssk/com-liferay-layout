@@ -42,7 +42,7 @@ public class LayoutPageTemplateFolderLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		// Layout Page Template Folder
+		// Layout page template folder
 
 		User user = userLocalService.getUser(userId);
 
@@ -79,7 +79,7 @@ public class LayoutPageTemplateFolderLocalServiceImpl
 			LayoutPageTemplateFolder layoutPageTemplateFolder)
 		throws PortalException {
 
-		/// Layout Page Template Folder
+		/// Layout page template folder
 
 		layoutPageTemplateFolderPersistence.remove(layoutPageTemplateFolder);
 
@@ -91,7 +91,7 @@ public class LayoutPageTemplateFolderLocalServiceImpl
 			ResourceConstants.SCOPE_INDIVIDUAL,
 			layoutPageTemplateFolder.getLayoutPageTemplateFolderId());
 
-		// Layout Page Template Entries
+		// Layout page template entries
 
 		List<LayoutPageTemplateEntry> layoutPageTemplateEntries =
 			layoutPageTemplateEntryLocalService.getLayoutPageTemplateEntries(

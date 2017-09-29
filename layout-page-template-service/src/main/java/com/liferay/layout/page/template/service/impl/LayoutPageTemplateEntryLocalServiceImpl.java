@@ -45,7 +45,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		// Layout Page Template Entry
+		// Layout page template entry
 
 		User user = userLocalService.getUser(userId);
 
@@ -98,7 +98,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 			LayoutPageTemplateEntry layoutPageTemplateEntry)
 		throws PortalException {
 
-		// Layout Page Template Entry
+		// Layout page template entry
 
 		layoutPageTemplateEntryPersistence.remove(layoutPageTemplateEntry);
 
@@ -110,7 +110,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 			ResourceConstants.SCOPE_INDIVIDUAL,
 			layoutPageTemplateEntry.getLayoutPageTemplateEntryId());
 
-		// Layout Page Template Fragments
+		// Layout page template fragments
 
 		_layoutPageTemplateFragmentLocalService.deleteByLayoutPageTemplateEntry(
 			layoutPageTemplateEntry.getGroupId(),
@@ -201,7 +201,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 
 		layoutPageTemplateEntryPersistence.update(layoutPageTemplateEntry);
 
-		// Layout Page Template Fragments
+		// Layout page template fragments
 
 		_layoutPageTemplateFragmentLocalService.deleteByLayoutPageTemplateEntry(
 			layoutPageTemplateEntry.getGroupId(), layoutPageTemplateEntryId);
