@@ -41,7 +41,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 	@Override
 	public LayoutPageTemplateEntry addLayoutPageTemplateEntry(
 			long userId, long groupId, long layoutPageTemplateFolderId,
-			String name, List<FragmentEntry> layoutPageTemplateFragments,
+			String name, List<FragmentEntry> fragmentEntries,
 			ServiceContext serviceContext)
 		throws PortalException {
 
@@ -78,10 +78,10 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 
 		// Layout Page Template Fragments
 
-		if (layoutPageTemplateFragments != null) {
+		if (fragmentEntries != null) {
 			int position = 0;
 
-			for (FragmentEntry fragmentEntry : layoutPageTemplateFragments) {
+			for (FragmentEntry fragmentEntry : fragmentEntries) {
 				_layoutPageTemplateFragmentLocalService.
 					addLayoutPageTemplateFragment(
 						userId, groupId, layoutPageTemplateEntryId,
@@ -184,7 +184,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 	@Override
 	public LayoutPageTemplateEntry updateLayoutPageTemplateEntry(
 			long userId, long layoutPageTemplateEntryId, String name,
-			List<FragmentEntry> layoutPageTemplateFragments,
+			List<FragmentEntry> fragmentEntries,
 			ServiceContext serviceContext)
 		throws PortalException {
 
@@ -208,10 +208,10 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 		_layoutPageTemplateFragmentLocalService.deleteByLayoutPageTemplateEntry(
 			layoutPageTemplateEntry.getGroupId(), layoutPageTemplateEntryId);
 
-		if (layoutPageTemplateFragments != null) {
+		if (fragmentEntries != null) {
 			int position = 0;
 
-			for (FragmentEntry fragmentEntry : layoutPageTemplateFragments) {
+			for (FragmentEntry fragmentEntry : fragmentEntries) {
 				_layoutPageTemplateFragmentLocalService.
 					addLayoutPageTemplateFragment(
 						userId, layoutPageTemplateEntry.getGroupId(),
