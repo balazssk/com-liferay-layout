@@ -58,7 +58,7 @@ public class LayoutPageTemplateEntryServiceHttp {
 	public static com.liferay.layout.page.template.model.LayoutPageTemplateEntry addLayoutPageTemplateEntry(
 		HttpPrincipal httpPrincipal, long groupId,
 		long layoutPageTemplateFolderId, java.lang.String name,
-		java.util.List<com.liferay.fragment.model.FragmentEntry> layoutPageTemplateFragments,
+		java.util.List<com.liferay.fragment.model.FragmentEntry> fragmentEntries,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
@@ -67,8 +67,8 @@ public class LayoutPageTemplateEntryServiceHttp {
 					_addLayoutPageTemplateEntryParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					layoutPageTemplateFolderId, name,
-					layoutPageTemplateFragments, serviceContext);
+					layoutPageTemplateFolderId, name, fragmentEntries,
+					serviceContext);
 
 			Object returnObj = null;
 
@@ -353,7 +353,7 @@ public class LayoutPageTemplateEntryServiceHttp {
 	public static com.liferay.layout.page.template.model.LayoutPageTemplateEntry updateLayoutPageTemplateEntry(
 		HttpPrincipal httpPrincipal, long layoutPageTemplateEntryId,
 		java.lang.String name,
-		java.util.List<com.liferay.fragment.model.FragmentEntry> layoutPageTemplateFragments,
+		java.util.List<com.liferay.fragment.model.FragmentEntry> fragmentEntries,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
@@ -362,8 +362,8 @@ public class LayoutPageTemplateEntryServiceHttp {
 					_updateLayoutPageTemplateEntryParameterTypes9);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
-					layoutPageTemplateEntryId, name,
-					layoutPageTemplateFragments, serviceContext);
+					layoutPageTemplateEntryId, name, fragmentEntries,
+					serviceContext);
 
 			Object returnObj = null;
 

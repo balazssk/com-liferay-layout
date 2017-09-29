@@ -76,8 +76,8 @@ public interface LayoutPageTemplateEntryLocalService extends BaseLocalService,
 
 	public LayoutPageTemplateEntry addLayoutPageTemplateEntry(long userId,
 		long groupId, long layoutPageTemplateFolderId, java.lang.String name,
-		List<FragmentEntry> layoutPageTemplateFragments,
-		ServiceContext serviceContext) throws PortalException;
+		List<FragmentEntry> fragmentEntries, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	* Creates a new layout page template entry with the primary key. Does not add the layout page template entry to the database.
@@ -266,6 +266,6 @@ public interface LayoutPageTemplateEntryLocalService extends BaseLocalService,
 
 	public LayoutPageTemplateEntry updateLayoutPageTemplateEntry(long userId,
 		long layoutPageTemplateEntryId, java.lang.String name,
-		List<FragmentEntry> layoutPageTemplateFragments,
-		ServiceContext serviceContext) throws PortalException;
+		List<FragmentEntry> fragmentEntries, ServiceContext serviceContext)
+		throws PortalException;
 }

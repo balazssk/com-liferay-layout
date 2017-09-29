@@ -67,14 +67,14 @@ import java.rmi.RemoteException;
 public class LayoutPageTemplateEntryServiceSoap {
 	public static com.liferay.layout.page.template.model.LayoutPageTemplateEntrySoap addLayoutPageTemplateEntry(
 		long groupId, long layoutPageTemplateFolderId, java.lang.String name,
-		java.util.List<com.liferay.fragment.model.FragmentEntry> layoutPageTemplateFragments,
+		java.util.List<com.liferay.fragment.model.FragmentEntry> fragmentEntries,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 		try {
 			com.liferay.layout.page.template.model.LayoutPageTemplateEntry returnValue =
 				LayoutPageTemplateEntryServiceUtil.addLayoutPageTemplateEntry(groupId,
-					layoutPageTemplateFolderId, name,
-					layoutPageTemplateFragments, serviceContext);
+					layoutPageTemplateFolderId, name, fragmentEntries,
+					serviceContext);
 
 			return com.liferay.layout.page.template.model.LayoutPageTemplateEntrySoap.toSoapModel(returnValue);
 		}
@@ -218,13 +218,13 @@ public class LayoutPageTemplateEntryServiceSoap {
 
 	public static com.liferay.layout.page.template.model.LayoutPageTemplateEntrySoap updateLayoutPageTemplateEntry(
 		long layoutPageTemplateEntryId, java.lang.String name,
-		java.util.List<com.liferay.fragment.model.FragmentEntry> layoutPageTemplateFragments,
+		java.util.List<com.liferay.fragment.model.FragmentEntry> fragmentEntries,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 		try {
 			com.liferay.layout.page.template.model.LayoutPageTemplateEntry returnValue =
 				LayoutPageTemplateEntryServiceUtil.updateLayoutPageTemplateEntry(layoutPageTemplateEntryId,
-					name, layoutPageTemplateFragments, serviceContext);
+					name, fragmentEntries, serviceContext);
 
 			return com.liferay.layout.page.template.model.LayoutPageTemplateEntrySoap.toSoapModel(returnValue);
 		}
