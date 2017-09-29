@@ -107,8 +107,6 @@ public class LayoutPageTemplateFragmentLocalServiceImpl
 			LayoutPageTemplateFragment layoutPageTemplateFragment)
 		throws PortalException {
 
-		// Layout page template fragment
-
 		layoutPageTemplateEntryPersistence.remove(layoutPageTemplateFragment);
 
 		return layoutPageTemplateFragment;
