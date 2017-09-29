@@ -44,8 +44,6 @@ public class LayoutPageTemplateFragmentLocalServiceImpl
 			long fragmentEntryId, int position, ServiceContext serviceContext)
 		throws PortalException {
 
-		// Layout page template fragment
-
 		User user = userLocalService.getUser(userId);
 
 		validateFragmentEntry(fragmentEntryId);
