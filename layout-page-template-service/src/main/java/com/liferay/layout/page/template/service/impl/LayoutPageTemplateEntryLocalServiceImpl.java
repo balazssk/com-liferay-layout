@@ -184,8 +184,7 @@ public class LayoutPageTemplateEntryLocalServiceImpl
 	@Override
 	public LayoutPageTemplateEntry updateLayoutPageTemplateEntry(
 			long userId, long layoutPageTemplateEntryId, String name,
-			List<FragmentEntry> fragmentEntries,
-			ServiceContext serviceContext)
+			List<FragmentEntry> fragmentEntries, ServiceContext serviceContext)
 		throws PortalException {
 
 		// Layout page template entry

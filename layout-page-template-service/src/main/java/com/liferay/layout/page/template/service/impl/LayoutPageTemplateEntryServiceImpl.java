@@ -39,8 +39,7 @@ public class LayoutPageTemplateEntryServiceImpl
 	@Override
 	public LayoutPageTemplateEntry addLayoutPageTemplateEntry(
 			long groupId, long layoutPageTemplateFolderId, String name,
-			List<FragmentEntry> fragmentEntries,
-			ServiceContext serviceContext)
+			List<FragmentEntry> fragmentEntries, ServiceContext serviceContext)
 		throws PortalException {
 
 		LayoutPageTemplatePermission.check(
@@ -165,8 +164,7 @@ public class LayoutPageTemplateEntryServiceImpl
 	@Override
 	public LayoutPageTemplateEntry updateLayoutPageTemplateEntry(
 			long layoutPageTemplateEntryId, String name,
-			List<FragmentEntry> fragmentEntries,
-			ServiceContext serviceContext)
+			List<FragmentEntry> fragmentEntries, ServiceContext serviceContext)
 		throws PortalException {
 
 		LayoutPageTemplateEntryPermission.check(
@@ -175,8 +173,8 @@ public class LayoutPageTemplateEntryServiceImpl
 
 		return layoutPageTemplateEntryLocalService.
 			updateLayoutPageTemplateEntry(
-				getUserId(), layoutPageTemplateEntryId, name,
-				fragmentEntries, serviceContext);
+				getUserId(), layoutPageTemplateEntryId, name, fragmentEntries,
+				serviceContext);
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
