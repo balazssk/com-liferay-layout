@@ -46,8 +46,8 @@ public class LayoutPageTemplateFragmentLocalServiceImpl
 
 		User user = userLocalService.getUser(userId);
 
-		validateFragmentEntry(fragmentEntryId);
 		validateLayoutPageTemplateEntry(layoutPageTemplateEntryId);
+		validateFragmentEntry(fragmentEntryId);
 
 		long layoutPageTemplateFragmentId = counterLocalService.increment();
 
